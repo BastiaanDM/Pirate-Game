@@ -1,0 +1,122 @@
+[gd_scene load_steps=20 format=3 uid="uid://81emb8a7wptm"]
+
+[ext_resource type="Texture2D" uid="uid://bbktjqejnu36e" path="res://assets/Palm Tree Island/Sprites/Background/BG Image.png" id="1_txqmi"]
+[ext_resource type="Script" path="res://background_animations.gd" id="2_juh4x"]
+[ext_resource type="Texture2D" uid="uid://b1wxp4moqd8wt" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="3_actg1"]
+[ext_resource type="Texture2D" uid="uid://bnda12bv8g6ri" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="4_qh38m"]
+[ext_resource type="Texture2D" uid="uid://ct2fcvs38vwx1" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="5_dmcdr"]
+[ext_resource type="Texture2D" uid="uid://c3ptrwoy0brvy" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="6_1w5ye"]
+[ext_resource type="Texture2D" uid="uid://bw05eppu4qkcw" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 01.png" id="7_lusth"]
+[ext_resource type="Texture2D" uid="uid://g885wfs2g3ux" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 02.png" id="8_blv2w"]
+[ext_resource type="Texture2D" uid="uid://b2h5inrfjsw6k" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 03.png" id="9_pksr3"]
+[ext_resource type="Texture2D" uid="uid://d2a8w6pamdc3h" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 04.png" id="10_5li15"]
+[ext_resource type="Texture2D" uid="uid://cgxo5qcyjf42d" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 01.png" id="11_rqkj1"]
+[ext_resource type="Texture2D" uid="uid://b4k1y3j3u8jlb" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 02.png" id="12_k4gn0"]
+[ext_resource type="Texture2D" uid="uid://xky3hk1tnb88" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 03.png" id="13_ijg6t"]
+[ext_resource type="Texture2D" uid="uid://dj7c66f24211" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 04.png" id="14_6hm3w"]
+[ext_resource type="Script" path="res://BigClouds.gd" id="15_7qp3y"]
+[ext_resource type="Texture2D" uid="uid://dbeti2t333qtv" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="16_72wvd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khkcu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_actg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qh38m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dmcdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1w5ye")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2td6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_lusth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_blv2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pksr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5li15")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_peicy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rqkj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_k4gn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ijg6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6hm3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Background" type="Sprite2D"]
+z_index = -200
+position = Vector2(1154, 509)
+scale = Vector2(6.7474, 9.56641)
+texture = ExtResource("1_txqmi")
+script = ExtResource("2_juh4x")
+
+[node name="Waves" type="AnimatedSprite2D" parent="."]
+position = Vector2(-74.2509, 27.7011)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_khkcu")
+frame_progress = 0.942945
+
+[node name="Tree Left Bg" type="AnimatedSprite2D" parent="."]
+z_index = 180
+position = Vector2(94.2586, 11.8122)
+sprite_frames = SubResource("SpriteFrames_2td6m")
+frame_progress = 0.282116
+
+[node name="Tree Regular Bg" type="AnimatedSprite2D" parent="."]
+z_index = 180
+position = Vector2(-12.0047, -6.27195)
+sprite_frames = SubResource("SpriteFrames_peicy")
+
+[node name="Tree Regular Bg2" type="AnimatedSprite2D" parent="."]
+z_index = 180
+position = Vector2(-100.631, 23.7289)
+sprite_frames = SubResource("SpriteFrames_peicy")
+
+[node name="Clouds" type="Node" parent="."]
+script = ExtResource("15_7qp3y")
+
+[node name="BigClouds2" type="Sprite2D" parent="Clouds"]
+z_index = -30
+position = Vector2(4085, 418)
+scale = Vector2(6, 6)
+texture = ExtResource("16_72wvd")
+
+[node name="BigClouds" type="Sprite2D" parent="Clouds"]
+z_index = -30
+position = Vector2(1397, 418)
+scale = Vector2(6, 6)
+texture = ExtResource("16_72wvd")

@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @onready var _animated_sprite = $PlayerSprite
+@onready var attack_1 = $"Attack 1"
+@onready var attack_1_timer = $"Attack 1/Timer"
+var attack_1_damage = 0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -1200.0
@@ -8,6 +11,8 @@ const JUMP_VELOCITY = -1200.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_sword = false
 
+func _ready():
+	attack_1_timer.connect("timeout", Callable(self, "end_attack"))
 
 func _physics_process(delta):
 	
@@ -44,10 +49,22 @@ func _physics_process(delta):
 		
 	elif current_animation == "Jump" or  current_animation == "Fall":
 		animation_name = "Land"
+		
+	if has_sword && is_on_floor() && Input.is_action_just_pressed("Attack 1"):
+		attack_1.add_to_group("attacks")
+		attack_1_timer.start()
+		
+	if !attack_1_timer.is_stopped():
+		animation_name = "Attack 1"
+		
 	
-	if has_sword and current_animation != "Dead Hit" and current_animation != "Dead Ground":
+	if has_sword and (animation_name == "Fall" or animation_name == "Run" or animation_name == "Jump" or animation_name == "Idle" or animation_name == "Land"):
 		animation_name += " Sword"
 	
-	if animation_name != current_animation:
+	if (animation_name != current_animation):
 		_animated_sprite.play(animation_name)
 	move_and_slide()
+
+func end_attack():
+	attack_1.remove_from_group("attacks")
+	attack_1_timer.stop()

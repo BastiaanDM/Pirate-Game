@@ -11,7 +11,7 @@ func _ready():
 	timer.stop()
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	if level.has_key:
 		sprite.play("Unlocked")
 		timer.start()

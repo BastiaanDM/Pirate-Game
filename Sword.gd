@@ -1,7 +1,6 @@
 extends Area2D
 
 @onready var animated_sprite = $"Sword Sprite"
-@onready var level = get_parent()
 signal Obtained_Sword
 
 func _ready():

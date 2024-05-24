@@ -14,4 +14,6 @@ func _process(delta):
 		child.global_position.x -= 100 * delta
 		if child.global_position.x < -1290.5:
 			child.global_position.x += 2*2688
+		child.global_position.x = round(child.global_position.x)
+			
 		

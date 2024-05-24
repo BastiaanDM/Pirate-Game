@@ -1,0 +1,81 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvmdyt0teyx64"]
+
+[ext_resource type="Script" path="res://Key.gd" id="1_jsejc"]
+[ext_resource type="Texture2D" uid="uid://v5ov62pdy413" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/1.png" id="2_tj0sx"]
+[ext_resource type="Texture2D" uid="uid://bnip05xwp6aah" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/2.png" id="3_8u6ri"]
+[ext_resource type="Texture2D" uid="uid://gajmq1fs0f8k" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/3.png" id="4_1xi7g"]
+[ext_resource type="Texture2D" uid="uid://c3sf76vbu4y5e" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/4.png" id="5_4lch3"]
+[ext_resource type="Texture2D" uid="uid://cj8gf6fnhb6a1" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="6_gbqt5"]
+[ext_resource type="Texture2D" uid="uid://c1p50f6l7d74m" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="7_gtuqd"]
+[ext_resource type="Texture2D" uid="uid://cqdlyjsq35h24" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="8_xby7w"]
+[ext_resource type="Texture2D" uid="uid://bu1sd0cgkpr7l" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="9_kysb0"]
+[ext_resource type="Texture2D" uid="uid://wg4sp0l3idot" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/5.png" id="10_mffrn"]
+[ext_resource type="Texture2D" uid="uid://dtybfoncqwu73" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="11_qtv0q"]
+[ext_resource type="Texture2D" uid="uid://b7tnfie3l6h0v" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="12_30hys"]
+[ext_resource type="Texture2D" uid="uid://bpyea57yscd5s" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="13_dt6hk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7i20"]
+height = 62.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8oox3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tj0sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8u6ri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1xi7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4lch3")
+}],
+"loop": false,
+"name": &"Effect",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gbqt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gtuqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xby7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kysb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mffrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qtv0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_30hys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dt6hk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[node name="Key" type="Area2D"]
+position = Vector2(2171, 641)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_jsejc")
+
+[node name="Key Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_l7i20")
+
+[node name="Key Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_8oox3")
+animation = &"Idle"

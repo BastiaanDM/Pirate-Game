@@ -6,9 +6,13 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -1200.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var has_sword = false
 
 
 func _physics_process(delta):
+	
+	var current_animation = _animated_sprite.get_animation()
+	
 	var animation_name
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -38,12 +42,12 @@ func _physics_process(delta):
 		else:
 			animation_name = "Jump"
 		
-	elif _animated_sprite.get_animation() == "Jump" or  _animated_sprite.get_animation() == "Fall":
+	elif current_animation == "Jump" or  current_animation == "Fall":
 		animation_name = "Land"
 	
+	if has_sword and current_animation != "Dead Hit" and current_animation != "Dead Ground":
+		animation_name += " Sword"
 	
-	if animation_name != _animated_sprite.get_animation():
+	if animation_name != current_animation:
 		_animated_sprite.play(animation_name)
 	move_and_slide()
-
-

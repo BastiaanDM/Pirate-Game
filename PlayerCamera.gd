@@ -8,7 +8,7 @@ var y_value = 541.5
 
 	
 
-func _process(delta):
+func _process(_delta):
 	if player.global_position.x > follow_x_threshold and player.global_position.x < follow_x_max:
 		global_position.x = player.global_position.x
 	else:

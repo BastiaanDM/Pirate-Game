@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://wj5jdi56wah7"]
+
+[ext_resource type="Script" path="res://Chest.gd" id="1_qgwrk"]
+[ext_resource type="Texture2D" uid="uid://c8q1oadkmbqr4" path="res://assets/Merchant Ship/Sprites/Chest/Idle/1.png" id="2_adw1c"]
+[ext_resource type="Texture2D" uid="uid://bf71ejv2fmabb" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/1.png" id="3_xgw0x"]
+[ext_resource type="Texture2D" uid="uid://bdeky804ohcci" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/2.png" id="4_6liv7"]
+[ext_resource type="Texture2D" uid="uid://ckmvfypx5y14t" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/3.png" id="5_imsg1"]
+[ext_resource type="Texture2D" uid="uid://bik6lxxvn8bbb" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/4.png" id="6_ej1hv"]
+[ext_resource type="Texture2D" uid="uid://cqkiw7yhhrpju" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/5.png" id="7_pvmuf"]
+[ext_resource type="Texture2D" uid="uid://dobujou33fxda" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/6.png" id="8_sa1v2"]
+[ext_resource type="Texture2D" uid="uid://crlbohuy0nu00" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/7.png" id="9_4lg53"]
+[ext_resource type="Texture2D" uid="uid://owsuqkwlnw4q" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/8.png" id="10_jokdi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgcxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_adw1c")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xgw0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6liv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_imsg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ej1hv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pvmuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sa1v2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4lg53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jokdi")
+}],
+"loop": false,
+"name": &"Unlocked",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n6gp"]
+size = Vector2(30, 24)
+
+[node name="Chest" type="Area2D"]
+z_index = -1
+position = Vector2(178, 779)
+scale = Vector2(4, 4)
+script = ExtResource("1_qgwrk")
+
+[node name="Chest Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qgcxp")
+animation = &"Unlocked"
+frame = 7
+frame_progress = 1.0
+
+[node name="Chest Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_5n6gp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true

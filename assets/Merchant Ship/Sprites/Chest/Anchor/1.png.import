@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baxeirm54r8o4"
-path="res://.godot/imported/1.png-77a3e584889577eb8ccb4ad58ac00ab8.ctex"
+path="res://.godot/imported/1.png-3fd046b30e1c01558ca89c456fdf8363.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Merchant Ship/Sprites/Ship/Anchor/1.png"
-dest_files=["res://.godot/imported/1.png-77a3e584889577eb8ccb4ad58ac00ab8.ctex"]
+source_file="res://assets/Merchant Ship/Sprites/Chest/Anchor/1.png"
+dest_files=["res://.godot/imported/1.png-3fd046b30e1c01558ca89c456fdf8363.ctex"]
 
 [params]
 
